@@ -1,0 +1,14 @@
+D:\CRT\Day-1\arrayDemo\bin\Debug\net10.0\arrayDemo.exe
+D:\CRT\Day-1\arrayDemo\bin\Debug\net10.0\arrayDemo.deps.json
+D:\CRT\Day-1\arrayDemo\bin\Debug\net10.0\arrayDemo.runtimeconfig.json
+D:\CRT\Day-1\arrayDemo\bin\Debug\net10.0\arrayDemo.dll
+D:\CRT\Day-1\arrayDemo\bin\Debug\net10.0\arrayDemo.pdb
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.AssemblyInfoInputs.cache
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.AssemblyInfo.cs
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.csproj.CoreCompileInputs.cache
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.dll
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\refint\arrayDemo.dll
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.pdb
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\arrayDemo.genruntimeconfig.cache
+D:\CRT\Day-1\arrayDemo\obj\Debug\net10.0\ref\arrayDemo.dll

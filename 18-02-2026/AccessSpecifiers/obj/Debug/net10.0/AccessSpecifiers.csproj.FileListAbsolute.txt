@@ -1,0 +1,14 @@
+D:\CRT\Day-3\AccessSpecifiers\bin\Debug\net10.0\AccessSpecifiers.exe
+D:\CRT\Day-3\AccessSpecifiers\bin\Debug\net10.0\AccessSpecifiers.deps.json
+D:\CRT\Day-3\AccessSpecifiers\bin\Debug\net10.0\AccessSpecifiers.runtimeconfig.json
+D:\CRT\Day-3\AccessSpecifiers\bin\Debug\net10.0\AccessSpecifiers.dll
+D:\CRT\Day-3\AccessSpecifiers\bin\Debug\net10.0\AccessSpecifiers.pdb
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.GeneratedMSBuildEditorConfig.editorconfig
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.AssemblyInfoInputs.cache
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.AssemblyInfo.cs
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.csproj.CoreCompileInputs.cache
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.dll
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\refint\AccessSpecifiers.dll
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.pdb
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\AccessSpecifiers.genruntimeconfig.cache
+D:\CRT\Day-3\AccessSpecifiers\obj\Debug\net10.0\ref\AccessSpecifiers.dll

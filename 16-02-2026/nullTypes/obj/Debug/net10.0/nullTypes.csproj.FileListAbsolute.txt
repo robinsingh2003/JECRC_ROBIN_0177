@@ -1,0 +1,14 @@
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.GeneratedMSBuildEditorConfig.editorconfig
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.AssemblyInfoInputs.cache
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.AssemblyInfo.cs
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.csproj.CoreCompileInputs.cache
+D:\CRT\Day-1\nullTypes\bin\Debug\net10.0\nullTypes.exe
+D:\CRT\Day-1\nullTypes\bin\Debug\net10.0\nullTypes.deps.json
+D:\CRT\Day-1\nullTypes\bin\Debug\net10.0\nullTypes.runtimeconfig.json
+D:\CRT\Day-1\nullTypes\bin\Debug\net10.0\nullTypes.dll
+D:\CRT\Day-1\nullTypes\bin\Debug\net10.0\nullTypes.pdb
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.dll
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\refint\nullTypes.dll
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.pdb
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\nullTypes.genruntimeconfig.cache
+D:\CRT\Day-1\nullTypes\obj\Debug\net10.0\ref\nullTypes.dll

@@ -1,0 +1,14 @@
+D:\CRT\Day-4\Interface\bin\Debug\net10.0\Interface.exe
+D:\CRT\Day-4\Interface\bin\Debug\net10.0\Interface.deps.json
+D:\CRT\Day-4\Interface\bin\Debug\net10.0\Interface.runtimeconfig.json
+D:\CRT\Day-4\Interface\bin\Debug\net10.0\Interface.dll
+D:\CRT\Day-4\Interface\bin\Debug\net10.0\Interface.pdb
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.GeneratedMSBuildEditorConfig.editorconfig
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.AssemblyInfoInputs.cache
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.AssemblyInfo.cs
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.csproj.CoreCompileInputs.cache
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.dll
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\refint\Interface.dll
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.pdb
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\Interface.genruntimeconfig.cache
+D:\CRT\Day-4\Interface\obj\Debug\net10.0\ref\Interface.dll
