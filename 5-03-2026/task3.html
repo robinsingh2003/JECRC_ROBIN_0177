@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+    Secure Task Allocation System
+    This file demonstrates three JavaScript event handling tasks:
+    1. Add to Cart (Click Event)
+    2. Login Form (Keyboard Event - Enter key)
+    3. Additional functionality
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Task Allocation System</title>
+    
+    <style>
+        /* ============================================
+           CSS Reset & Base Styles
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ============================================
+           Container Styles
+           ============================================ */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1a73e8;
+        }
+
+        /* ============================================
+           Module/Section Styles
+           ============================================ */
+        .module {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #34a853;
+            font-size: 1.1rem;
+        }
+
+        /* ============================================
+           Input Styles
+           ============================================ */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+        }
+
+        /* ============================================
+           Button Styles
+           ============================================ */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #addCart {
+            background: #28a745;
+            color: white;
+        }
+
+        #addCart:hover {
+            background: #218838;
+        }
+
+        #loginBtn {
+            background: #1a73e8;
+            color: white;
+        }
+
+        #loginBtn:hover {
+            background: #1557b0;
+        }
+
+        /* ============================================
+           Status Message Styles
+           ============================================ */
+        #status {
+            color: #28a745;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        #loginStatus {
+            color: #1a73e8;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* ============================================
+           Console Log Display Styles
+           ============================================ */
+        .console-log {
+            background: #222;
+            color: #0f0;
+            padding: 10px;
+            height: 100px;
+            overflow-y: auto;
+            border-radius: 6px;
+            font-size: 11px;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Page Title -->
+        <h2>Project Portal - Task 1, 2 & 3</h2>
+
+        <!-- ============================================
+             Task 1: E-Commerce Add to Cart
+             Demonstrates click event for adding product to cart
+             ============================================ -->
+        <div class="module">
+            <h3>Task 1: Add to Cart</h3>
+            <p>Product: Tracking System Pro</p>
+            <button id="addCart">Add to Cart</button>
+            <p id="status"></p>
+        </div>
+
+        <!-- ============================================
+             Task 2: Login Form Keyboard Event
+             Demonstrates keydown event - submits on Enter key
+             ============================================ -->
+        <div class="module">
+            <h3>Task 2: Login Form (Press Enter)</h3>
+            <input type="text" id="username" placeholder="Enter username (Press Enter to login)">
+            <button id="loginBtn">Login</button>
+            <p id="loginStatus"></p>
+        </div>
+
+        <!-- Console Log Display Area -->
+        <div class="console-log" id="logBox"></div>
+    </div>
+
+    <!-- ============================================
+         JavaScript Event Handling Code
+         ============================================ -->
+    <script>
+        /**
+         * Logs a message to the console display area and browser console
+         * @param {string} text - The message to be logged
+         * @param {boolean} isWarning - Whether this is a warning message
+         */
+        function sysLog(text, isWarning = false) {
+            // Get the log box element
+            const box = document.getElementById("logBox");
+            
+            // Get current time for timestamp
+            const time = new Date().toLocaleTimeString();
+            
+            // Add new log entry at the top
+            box.innerHTML = "[" + time + "] " + text + "<br>" + box.innerHTML;
+            
+            // Also log to browser console
+            if (isWarning) {
+                console.warn(text);
+            } else {
+                console.log(text);
+            }
+        }
+
+        // ============================================
+        // Task 1: Add to Cart Button Event Handler
+        // Click event for e-commerce functionality
+        // ============================================
+
+        // Add to Cart button par click event listener lagana
+        // Jab user "Add to Cart" button click karega, yeh code chalega
+        document.getElementById("addCart").addEventListener("click", function() {
+            // Cart me product add karne ka action log karega
+            sysLog("Product added to cart: Tracking System Pro");
+            
+            // User ko success message display karega
+            document.getElementById("status").innerHTML = "Item successfully added to cart!";
+        });
+
+        // ============================================
+        // Task 2: Login Form Keyboard Event Handler
+        // keydown event - submits login when Enter is pressed
+        // ============================================
+
+        // Username input field ko select karna
+        // Select the username input field
+        const usernameInput = document.getElementById("username");
+
+        // Username input par keydown event listener lagana
+        // Add keydown event listener to username input
+        usernameInput.addEventListener("keydown", function(e) {
+            // Check if pressed key is Enter
+            // if(e.key === "Enter") - Yeh check karta hai ke Enter key press hua hai kya
+            if (e.key === "Enter") {
+                // Login attempt trigger hua hai, log karein
+                // Log that login attempt was triggered
+                sysLog("Login attempt triggered");
+                
+                // User ko alert dikhana form submit ho raha hai
+                // Show alert that login form is being submitted
+                alert("Submitting login form");
+                
+                // Message display karna
+                // Display success message
+                document.getElementById("loginStatus").innerHTML = "Login submitted successfully!";
+            }
+        });
+
+        // ============================================
+        // Task 2 Bonus: Login Button Click Event
+        // Alternative way to trigger login
+        // ============================================
+
+        // Login button par click event listener lagana
+        // Add click event listener to login button
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            // Login attempt log karna
+            // Log login attempt
+            sysLog("Login attempt triggered (button click)");
+            
+            // Alert dikhana
+            // Show alert
+            alert("Submitting login form");
+            
+            // Message display karna
+            // Display success message
+            document.getElementById("loginStatus").innerHTML = "Login submitted successfully!";
+        });
+
+    </script>
+
+</body>
+</html>
