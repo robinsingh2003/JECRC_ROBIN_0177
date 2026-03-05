@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--
+    Login Form Keyboard Event Demo
+    This file demonstrates using keydown event to submit login form when Enter is pressed
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Keyboard Event</title>
+    
+    <style>
+        /* ============================================
+           CSS Reset & Base Styles
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        /* ============================================
+           Container Styles
+           ============================================ */
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* ============================================
+           Form & Input Styles
+           ============================================ */
+        .section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: #fafbfc;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        /* ============================================
+           Button Styles
+           ============================================ */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #loginBtn {
+            background: #007bff;
+            color: white;
+        }
+
+        #loginBtn:hover {
+            background: #0056b3;
+        }
+
+        /* ============================================
+           Message Display Styles
+           ============================================ */
+        #msg {
+            color: #28a745;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* ============================================
+           Log Box Styles
+           ============================================ */
+        .log-box {
+            background: #222;
+            color: #0f0;
+            padding: 10px;
+            height: 80px;
+            overflow-y: auto;
+            border-radius: 6px;
+            font-size: 11px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Page Title -->
+        <h2>Project Portal - Login</h2>
+
+        <!-- ============================================
+             Login Form Section
+             Contains username input field
+             When user presses Enter, login form submits
+             ============================================ -->
+        <div class="section">
+            
+            <!-- Username Input Field -->
+            <!-- id="username" is used to target this element in JavaScript -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter username">
+            
+            <!-- Login Button -->
+            <button id="loginBtn">Login</button>
+            
+            <!-- Success Message Display Area -->
+            <p id="msg"></p>
+        </div>
+
+        <!-- Log Display Box -->
+        <div class="log-box" id="logBox"></div>
+
+    </div>
+
+    <!-- ============================================
+         JavaScript Event Handling Code
+         ============================================ -->
+    <script>
+        /**
+         * Logs a message to the log box and browser console
+         * @param {string} text - The message to be logged
+         */
+        function log(text) {
+            // Get the log box element
+            const box = document.getElementById("logBox");
+            
+            // Create log entry with timestamp
+            const timestamp = new Date().toLocaleTimeString();
+            box.innerHTML = "[" + timestamp + "] " + text + "<br>" + box.innerHTML;
+            
+            // Also log to browser console for debugging
+            console.log(text);
+        }
+
+        // ============================================
+        // Login Form Keyboard Event Handler
+        // Uses keydown event to detect Enter key press
+        // ============================================
+
+        // Username input field ko select karna
+        // Select the username input field
+        const usernameInput = document.getElementById("username");
+
+        // Username input par keydown event listener lagana
+        // Add keydown event listener to username input
+        usernameInput.addEventListener("keydown", function(e) {
+            // Check if pressed key is Enter
+            // if(e.key === "Enter") - Yeh check karta hai ke Enter key press hua hai kya
+            if (e.key === "Enter") {
+                // Login attempt trigger hua hai, log karein
+                // Log that login attempt was triggered
+                log("Login attempt triggered");
+                
+                // User ko alert dikhana form submit ho raha hai
+                // Show alert that login form is being submitted
+                alert("Submitting login form");
+                
+                // Message display karna
+                // Display success message
+                document.getElementById("msg").innerHTML = "Login submitted successfully!";
+            }
+        });
+
+        // ============================================
+        // Login Button Click Event Handler
+        // (Optional: for clicking the button directly)
+        // ============================================
+
+        // Login button par click event listener lagana
+        // Add click event listener to login button
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            // Login attempt log karna
+            // Log login attempt
+            log("Login attempt triggered (button click)");
+            
+            // Alert dikhana
+            // Show alert
+            alert("Submitting login form");
+            
+            // Message display karna
+            // Display success message
+            document.getElementById("msg").innerHTML = "Login submitted successfully!";
+        });
+
+    </script>
+
+</body>
+</html>

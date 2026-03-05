@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+    Task Allocation & Event Demo
+    This file demonstrates JavaScript event handling techniques
+    for e-commerce functionality (Add to Cart)
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Allocation & Event Demo</title>
+    
+    <style>
+        /* ============================================
+           CSS Reset & Base Styles
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        /* ============================================
+           Layout & Container Styles
+           ============================================ */
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* ============================================
+           Section/Card Styles
+           ============================================ */
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        /* ============================================
+           Button Styles
+           ============================================ */
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Special style for Add to Cart button */
+        #addCart {
+            background: #28a745;
+        }
+
+        #addCart:hover {
+            background: #218838;
+        }
+
+        /* ============================================
+           Message Display Styles
+           ============================================ */
+        #msg {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        /* ============================================
+           Keyboard Message Display Styles
+           ============================================ */
+        #keyMsg {
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        /* ============================================
+           Event Log Styles
+           ============================================ */
+        #log {
+            margin-top: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .log-item {
+            padding: 3px 0;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Page Title -->
+        <h2>JavaScript Event Handling & Task Demo</h2>
+
+        <!-- ============================================
+             Section 1: E-Commerce Add to Cart
+             Demonstrates click event handling for 
+             shopping cart functionality
+             ============================================ -->
+        <div class="section">
+            <h3>Task: E-Commerce Add to Cart</h3>
+            <p>Product: Tracking System Pro</p>
+            <button id="addCart">Add to Cart</button>
+            <p id="msg"></p>
+        </div>
+
+        <!-- ============================================
+             Section 2: Keyboard Interaction
+             Demonstrates keyboard event handling
+             for keydown events - shows message after pressing any key
+             ============================================ -->
+        <div class="section">
+            <h3>Keyboard Interaction</h3>
+            <p>Press any key to see a message below:</p>
+            <p id="keyMsg"></p>
+        </div>
+
+        <!-- Event Log Display Area -->
+        <div id="log"></div>
+    </div>
+
+    <!-- ============================================
+         JavaScript Event Handling Code
+         ============================================ -->
+    <script>
+        /**
+         * Logs an event message to the log display area and browser console
+         * @param {string} message - The message to be logged
+         */
+        function logEvent(message) {
+            // Get the log container element
+            const logDiv = document.getElementById("log");
+            
+            // Create a new div element for the log entry
+            const item = document.createElement("div");
+            item.className = "log-item";
+            
+            // Format the message with timestamp
+            const timestamp = new Date().toLocaleTimeString();
+            item.textContent = "[" + timestamp + "] " + message;
+            
+            // Add the new log entry at the top of the log container
+            logDiv.prepend(item);
+            
+            // Also log to browser console for debugging
+            console.log(message);
+        }
+
+        // ============================================
+        // Add to Cart Button Event Handler
+        // Demonstrates click event for e-commerce functionality
+        // ============================================
+        
+        // Add to Cart button par click event listener lagana
+        // Jab user "Add to Cart" button click karega, yeh code chalega
+        document.getElementById("addCart").addEventListener("click", function() {
+            // Cart me product add karne ka action log karega
+            logEvent("Product added to cart: Tracking System Pro");
+            
+            // User ko success message display karega
+            document.getElementById("msg").innerHTML = "Item successfully added to cart";
+        });
+
+        // ============================================
+        // Keyboard Event Handler
+        // Shows message after pressing any key
+        // ============================================
+
+        // Jab bhi koi key press ki jaye, yeh event fire hoga
+        // (Fires when any key is pressed down)
+        document.addEventListener("keydown", function(e) {
+            // Key press ka event log karega
+            logEvent("Key Pressed: " + e.key);
+            
+            // User ko message display karega ke konsi key press hui hai
+            document.getElementById("keyMsg").innerHTML = "You pressed: " + e.key;
+        });
+
+        /* 
+        ============================================
+        MOUSE INTERACTION EVENTS - COMMENTED OUT
+        ============================================
+        
+        // Mouse Click Event Handler
+        document.getElementById("clickBtn").addEventListener("click", function() {
+            logEvent("Click Event Triggered");
+        });
+
+        // Double Click Event Handler
+        document.getElementById("dblClickBtn").addEventListener("dblclick", function() {
+            logEvent("Double Click Event Triggered");
+        });
+
+        // Mouse Area Event Handlers
+        const mouseArea = document.getElementById("mouseArea");
+
+        mouseArea.addEventListener("mouseover", function() {
+            logEvent("Mouse Over Event");
+        });
+
+        mouseArea.addEventListener("mouseout", function() {
+            logEvent("Mouse Out Event");
+        });
+
+        mouseArea.addEventListener("mousedown", function() {
+            logEvent("Mouse Down Event");
+        });
+
+        mouseArea.addEventListener("mouseup", function() {
+            logEvent("Mouse Up Event");
+        });
+
+        mouseArea.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+            logEvent("Right Click (Context Menu) Event");
+        });
+
+        // Key Up Event Handler - COMMENTED OUT
+        document.addEventListener("keyup", function(e) {
+            logEvent("Key Up : " + e.key);
+        });
+
+        */
+    </script>
+</body>
+</html>
