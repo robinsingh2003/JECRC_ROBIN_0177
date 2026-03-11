@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Search Input Keyboard Event</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    margin:40px;
+}
+
+input{
+    width:300px;
+    padding:10px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Search Product</h2>
+
+<input type="text" id="searchBox" placeholder="Search product">
+
+<script>
+
+/* Keydown Event using Arrow Function */
+
+document.getElementById("searchBox").addEventListener("keydown", (e) => {
+
+if(e.key === "Enter"){
+
+console.log("Search triggered");
+
+alert("Searching product...");
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

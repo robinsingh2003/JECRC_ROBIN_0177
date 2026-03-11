@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open debuggerjs.html",
+            "file": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\5-03-2026\\concepts\\debuggerjs.html"
+        }
+    ]
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Smart Todo Manager</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:linear-gradient(135deg,#667eea,#764ba2);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+transition:0.3s;
+}
+
+.dark{
+background:#121212;
+}
+
+.container{
+width:520px;
+background:white;
+border-radius:12px;
+padding:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.dark .container{
+background:#1e1e1e;
+color:white;
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.topBar{
+display:flex;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+input{
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+padding:8px 12px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+transition:0.2s;
+font-size:14px;
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.addBtn{
+background:#28a745;
+color:white;
+}
+
+.filterBtn{
+background:#007bff;
+color:white;
+margin-right:5px;
+}
+
+.deleteBtn{
+background:#dc3545;
+color:white;
+}
+
+.editBtn{
+background:#ffc107;
+}
+
+ul{
+list-style:none;
+padding:0;
+margin-top:15px;
+}
+
+li{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+margin-bottom:8px;
+border-radius:6px;
+background:#f5f5f5;
+transition:0.2s;
+}
+
+.dark li{
+background:#2b2b2b;
+}
+
+li:hover{
+transform:translateX(5px);
+}
+
+.taskLeft{
+display:flex;
+align-items:center;
+}
+
+.taskText{
+margin-left:10px;
+}
+
+.completed{
+text-decoration:line-through;
+color:gray;
+}
+
+.priorityHigh{
+border-left:5px solid red;
+}
+
+.priorityNormal{
+border-left:5px solid orange;
+}
+
+.priorityLow{
+border-left:5px solid green;
+}
+
+.counter{
+margin-top:10px;
+font-size:14px;
+color:gray;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Smart Todo Manager</h2>
+
+<div class="topBar">
+
+<button id="themeBtn" onclick="toggleDark()">
+<i class="fa-solid fa-moon"></i>
+</button>
+
+<input id="search" placeholder="Search tasks..." onkeyup="loadTodos()">
+
+</div>
+
+<div style="display:flex; gap:10px; margin-bottom:10px;">
+
+<input id="taskInput" placeholder="Enter task..." style="flex:1">
+
+<select id="priority">
+<option value="Low">Low</option>
+<option value="Normal">Normal</option>
+<option value="High">High</option>
+</select>
+
+<button class="addBtn" onclick="addTodo()">
+<i class="fa-solid fa-plus"></i> Add
+</button>
+
+</div>
+
+<div>
+
+<button class="filterBtn" onclick="setFilter('all')">All</button>
+<button class="filterBtn" onclick="setFilter('active')">Active</button>
+<button class="filterBtn" onclick="setFilter('completed')">Completed</button>
+
+</div>
+
+<ul id="list"></ul>
+
+<div class="counter" id="counter"></div>
+
+</div>
+
+<script>
+
+const API="http://localhost:5049/api/todo";
+
+let filter="all";
+
+function toggleDark(){
+
+const body=document.body;
+const icon=document.querySelector("#themeBtn i");
+
+body.classList.toggle("dark");
+
+if(body.classList.contains("dark")){
+icon.classList.remove("fa-moon");
+icon.classList.add("fa-sun");
+}
+else{
+icon.classList.remove("fa-sun");
+icon.classList.add("fa-moon");
+}
+
+}
+
+function setFilter(f){
+filter=f;
+loadTodos();
+}
+
+function loadTodos(){
+
+fetch(API)
+.then(res=>res.json())
+.then(data=>{
+
+const list=document.getElementById("list");
+list.innerHTML="";
+
+const search=document.getElementById("search").value.toLowerCase();
+
+let active=0;
+
+data
+.filter(t=>{
+
+if(filter==="active") return !t.isCompleted;
+if(filter==="completed") return t.isCompleted;
+
+return true;
+
+})
+.filter(t=>t.title.toLowerCase().includes(search))
+.forEach(t=>{
+
+if(!t.isCompleted) active++;
+
+const li=document.createElement("li");
+
+if(t.priority==="High") li.classList.add("priorityHigh");
+if(t.priority==="Normal") li.classList.add("priorityNormal");
+if(t.priority==="Low") li.classList.add("priorityLow");
+
+const left=document.createElement("div");
+left.className="taskLeft";
+
+const cb=document.createElement("input");
+cb.type="checkbox";
+cb.checked=t.isCompleted;
+
+cb.onchange=()=>{
+
+fetch(API+"/"+t.id,{
+method:"PUT",
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+id:t.id,
+title:t.title,
+isCompleted:cb.checked,
+priority:t.priority
+})
+}).then(loadTodos);
+
+};
+
+const span=document.createElement("span");
+span.className="taskText";
+span.innerText=t.title;
+
+if(t.isCompleted)
+span.classList.add("completed");
+
+left.append(cb);
+left.append(span);
+
+const actions=document.createElement("div");
+
+const edit=document.createElement("button");
+edit.className="editBtn";
+edit.innerHTML='<i class="fa-solid fa-pen"></i>';
+
+edit.onclick=()=>{
+
+const newTitle=prompt("Edit Task",t.title);
+
+if(newTitle){
+
+fetch(API+"/"+t.id,{
+method:"PUT",
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+id:t.id,
+title:newTitle,
+isCompleted:t.isCompleted,
+priority:t.priority
+})
+}).then(loadTodos);
+
+}
+
+};
+
+const del=document.createElement("button");
+del.className="deleteBtn";
+del.innerHTML='<i class="fa-solid fa-trash"></i>';
+
+del.onclick=()=>{
+fetch(API+"/"+t.id,{method:"DELETE"})
+.then(loadTodos);
+};
+
+actions.append(edit);
+actions.append(del);
+
+li.append(left);
+li.append(actions);
+
+list.append(li);
+
+});
+
+document.getElementById("counter").innerText=
+active+" active tasks";
+
+});
+
+}
+
+function addTodo(){
+
+const title=document.getElementById("taskInput").value;
+const priority=document.getElementById("priority").value;
+
+if(title===""){
+alert("Enter task first");
+return;
+}
+
+fetch(API,{
+method:"POST",
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+title:title,
+isCompleted:false,
+priority:priority
+})
+})
+.then(()=>{
+
+document.getElementById("taskInput").value="";
+loadTodos();
+
+});
+
+}
+
+loadTodos();
+
+</script>
+
+</body>
+</html>
