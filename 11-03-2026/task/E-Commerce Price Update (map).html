@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Price Update</title>
+</head>
+<body>
+
+<h2>E-Commerce Price Update</h2>
+
+<p><strong>Original Prices:</strong> <span id="original"></span></p>
+<p><strong>Prices After 10% Discount:</strong> <span id="result"></span></p>
+
+<script>
+    const prices = [1200, 800, 1500, 2000];
+
+    // Display original prices
+    document.getElementById("original").innerHTML = prices;
+
+    // Apply 10% discount using map()
+    const discountedPrices = prices.map(function(price){
+        return price * 0.9;
+    });
+
+    // Display discounted prices on webpage
+    document.getElementById("result").innerHTML = discountedPrices;
+</script>
+
+</body>
+</html>

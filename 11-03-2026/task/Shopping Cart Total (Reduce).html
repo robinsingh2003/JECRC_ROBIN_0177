@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart Total</title>
+</head>
+<body>
+
+<h2>Shopping Cart Total</h2>
+
+<p><strong>Cart Items:</strong> <span id="cart"></span></p>
+<p><strong>Total Price:</strong> <span id="total"></span></p>
+
+<script>
+    const cart = [500, 1200, 800, 1500];
+
+    // Display cart items
+    document.getElementById("cart").innerHTML = cart;
+
+    // Use reduce() to calculate total
+    const totalPrice = cart.reduce(function(total, price){
+        return total + price;
+    }, 0);
+
+    // Display total on webpage
+    document.getElementById("total").innerHTML = totalPrice;
+</script>
+
+</body>
+</html>

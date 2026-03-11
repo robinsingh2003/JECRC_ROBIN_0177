@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Processing</title>
+</head>
+<body>
+
+<h2>Student Grade Processing</h2>
+
+<p><strong>Original Marks:</strong> <span id="original"></span></p>
+<p><strong>Marks After Adding 5 Bonus:</strong> <span id="result"></span></p>
+
+<script>
+    const marks = [65, 70, 80, 55, 90];
+
+    // Display original marks
+    document.getElementById("original").innerHTML = marks;
+
+    // Use map() to add 5 bonus marks
+    const updatedMarks = marks.map(function(mark) {
+        return mark + 5;
+    });
+
+    // Display updated marks on webpage
+    document.getElementById("result").innerHTML = updatedMarks;
+</script>
+
+</body>
+</html>

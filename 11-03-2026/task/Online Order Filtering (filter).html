@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Order Filtering</title>
+</head>
+<body>
+
+<h2>Online Order Filtering</h2>
+
+<p><strong>All Orders:</strong> <span id="orders"></span></p>
+<p><strong>Orders Above ₹1000:</strong> <span id="result"></span></p>
+
+<script>
+    const orders = [450, 1200, 700, 3000, 1500];
+
+    // Show original orders
+    document.getElementById("orders").innerHTML = orders;
+
+    // Use filter() to get orders greater than 1000
+    const filteredOrders = orders.filter(function(order){
+        return order > 1000;
+    });
+
+    // Show filtered orders on webpage
+    document.getElementById("result").innerHTML = filteredOrders;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pass Students Only</title>
+</head>
+<body>
+
+<h2>Pass Students Only</h2>
+
+<p><strong>All Marks:</strong> <span id="allMarks"></span></p>
+<p><strong>Passing Marks (Above 50):</strong> <span id="result"></span></p>
+
+<script>
+    const marks = [35, 67, 48, 90, 55, 30];
+
+    // Show all marks
+    document.getElementById("allMarks").innerHTML = marks;
+
+    // Filter marks greater than 50
+    const passingStudents = marks.filter(function(mark){
+        return mark > 50;
+    });
+
+    // Display passing marks on webpage
+    document.getElementById("result").innerHTML = passingStudents;
+</script>
+
+</body>
+</html>
