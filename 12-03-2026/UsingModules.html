@@ -1,0 +1,306 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Using Modules</title>
+
+<style>
+body{
+font-family: Arial;
+padding:40px;
+}
+
+h2{
+margin-top:40px;
+}
+
+.container{
+display:flex;
+gap:40px;
+}
+
+.box{
+border:1px solid #ccc;
+padding:20px;
+width:300px;
+border-radius:8px;
+}
+
+button{
+margin-top:10px;
+padding:6px 12px;
+}
+
+.result{
+margin-top:10px;
+font-weight:bold;
+color:blue;
+}
+</style>
+
+<script>
+
+function formatDate(date)
+{
+    return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
+}
+
+function validateEmail(email)
+{
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function checkEmail1()
+{
+    const email = document.getElementById('email1').value;
+    const result = validateEmail(email) ? 'Valid Email' : 'Invalid Email';
+    document.getElementById('result1').innerText = result;
+}
+
+function formatDate2(date)
+{
+    return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
+}
+
+function validateEmail2(email)
+{
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function checkEmail2()
+{
+    const email = document.getElementById('email2').value;
+    const result = validateEmail2(email) ? 'Valid Email' : 'Invalid Email';
+    document.getElementById('result2').innerText = result;
+}
+const Utils ={
+    formatDate(date)
+    {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    },
+    validateEmail(email){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+};
+document.getElementById("date3").innerText = Utils.formatDate(new Date());
+function checkEmail3(){
+    const email = document.getElementById('email3').value;
+    const result = Utils.validateEmail(email) ? 'valid Email' : 'Invalid Email';
+    document.getElementById('result3').innerText = result;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Email Validation Example</h1>
+
+<div class="container">
+
+<div class="box">
+<h2>Module 1</h2>
+
+<input type="text" id="email1" placeholder="Enter Email">
+<br>
+<button onclick="checkEmail1()">Check Email</button>
+
+<div id="result1" class="result"></div>
+
+</div>
+
+
+<div class="box">
+<h2>Module 2</h2>
+
+<input type="text" id="email2" placeholder="Enter Email">
+<br>
+<button onclick="checkEmail2()">Check Email</button>
+
+<div id="result2" class="result"></div>
+
+</div>
+
+</div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Using Modules</title>
+
+<style>
+
+body{
+font-family: Arial;
+padding:40px;
+}
+
+h2{
+margin-top:10px;
+}
+
+.container{
+display:flex;
+gap:40px;
+}
+
+.box{
+border:1px solid #ccc;
+padding:20px;
+width:300px;
+border-radius:8px;
+}
+
+button{
+margin-top:10px;
+padding:6px 12px;
+}
+
+.result{
+margin-top:10px;
+font-weight:bold;
+color:blue;
+}
+
+</style>
+
+<script>
+
+/* -------------------------
+METHOD 1 – NORMAL FUNCTIONS
+-------------------------*/
+
+function validateEmail(email)
+{
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function checkEmail1()
+{
+const email = document.getElementById('email1').value;
+
+const result = validateEmail(email) ? 'Valid Email' : 'Invalid Email';
+
+document.getElementById('result1').innerText = result;
+}
+
+
+/* -------------------------
+METHOD 2 – DUPLICATE FUNCTIONS
+-------------------------*/
+
+function validateEmail2(email)
+{
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function checkEmail2()
+{
+const email = document.getElementById('email2').value;
+
+const result = validateEmail2(email) ? 'Valid Email' : 'Invalid Email';
+
+document.getElementById('result2').innerText = result;
+}
+
+
+/* -------------------------
+METHOD 3 – UTILITY MODULE OBJECT
+-------------------------*/
+
+const Utils = {
+
+formatDate(date)
+{
+return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
+},
+
+validateEmail(email)
+{
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+};
+
+function checkEmail3()
+{
+const email = document.getElementById('email3').value;
+
+const result = Utils.validateEmail(email) ? 'Valid Email' : 'Invalid Email';
+
+document.getElementById('result3').innerText = result;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Email Validation Example</h1>
+
+<div class="container">
+
+
+<div class="box">
+
+<h2>Method 1<br>Normal Functions</h2>
+
+<input type="text" id="email1" placeholder="Enter Email">
+
+<br>
+
+<button onclick="checkEmail1()">Check Email</button>
+
+<div id="result1" class="result"></div>
+
+</div>
+
+
+<div class="box">
+
+<h2>Method 2<br>Duplicate Functions</h2>
+
+<input type="text" id="email2" placeholder="Enter Email">
+
+<br>
+
+<button onclick="checkEmail2()">Check Email</button>
+
+<div id="result2" class="result"></div>
+
+</div>
+
+
+<div class="box">
+
+<h2>Method 3<br>Utility Module</h2>
+
+<p>Today: <span id="date3"></span></p>
+
+<input type="text" id="email3" placeholder="Enter Email">
+
+<br>
+
+<button onclick="checkEmail3()">Check Email</button>
+
+<div id="result3" class="result"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+document.getElementById("date3").innerText =
+Utils.formatDate(new Date());
+
+</script>
+
+</body>
+
+</html>

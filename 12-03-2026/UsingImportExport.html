@@ -1,0 +1,284 @@
+<!-- <script type="module">
+//  Using Import/Export Project 1 (Utils module)
+const Utils = 
+export const PI = 3.14159;
+export function add(a,b){
+return a + b;
+}
+export function subtract(a,b){
+return a-b;
+}
+export function multiply(a,b){
+return a*b;
+}
+export functin divide(a,b)
+{
+if(b===0){
+throw new Error('Cannot divide by zero');
+}
+return a/b;
+};
+const blob = new Blob([utils],{type: 'text/javascript';
+const url = URL.createObjectURL(blob);
+// Dynamically import the utils module app.js
+import(url).then(module => {
+    console.log('PI:', module.PI);
+    console.log('Add:', module.add(5,3));
+    console.log('subtract:' , module.subtract(5,3));
+    console.log('multiply',module.multiply(5,3));
+    console.log('divide'),module.divide(5,3));
+})catch(error => {
+    console.error('Error loading module:', error);)
+})
+})
+</script> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Import / Export Module Example</title>
+
+<style>
+body{
+font-family: Arial;
+padding:40px;
+}
+
+.box{
+border:1px solid #ccc;
+padding:20px;
+width:350px;
+border-radius:8px;
+}
+
+p{
+margin:8px 0;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Using Import / Export (Dynamic Module)</h2>
+
+<div class="box">
+
+<p>PI: <span id="pi"></span></p>
+
+<p>Add (5 + 3): <span id="add"></span></p>
+
+<p>Subtract (5 - 3): <span id="subtract"></span></p>
+
+<p>Multiply (5 × 3): <span id="multiply"></span></p>
+
+<p>Divide (5 ÷ 3): <span id="divide"></span></p>
+
+</div>
+
+
+<script type="module">
+
+/* Utils module code stored as text */
+const utils = `
+export const PI = 3.14159;
+
+export function add(a,b){
+ return a + b;
+}
+
+export function subtract(a,b){
+ return a - b;
+}
+
+export function multiply(a,b){
+ return a * b;
+}
+
+export function divide(a,b){
+ if(b === 0){
+  throw new Error('Cannot divide by zero');
+ }
+ return a / b;
+}
+`;
+
+
+/* Create module file dynamically */
+const blob = new Blob([utils], { type: "text/javascript" });
+
+const url = URL.createObjectURL(blob);
+
+
+/* Import the module dynamically */
+import(url)
+.then(module => {
+
+ document.getElementById("pi").innerText = module.PI;
+
+ document.getElementById("add").innerText =
+ module.add(5,3);
+
+ document.getElementById("subtract").innerText =
+ module.subtract(5,3);
+
+ document.getElementById("multiply").innerText =
+ module.multiply(5,3);
+
+ document.getElementById("divide").innerText =
+ module.divide(5,3);
+
+})
+.catch(error => {
+
+ console.error("Error loading module:", error);
+
+});
+
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamic Module Calculator</title>
+
+<style>
+body{
+font-family: Arial;
+padding:40px;
+}
+
+.container{
+display:flex;
+gap:40px;
+}
+
+.box{
+border:1px solid #ccc;
+padding:20px;
+width:350px;
+border-radius:8px;
+}
+
+input{
+width:100%;
+padding:8px;
+margin-top:10px;
+}
+
+button{
+margin-top:10px;
+padding:6px 12px;
+}
+
+.result{
+margin-top:10px;
+font-weight:bold;
+color:blue;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Dynamic Module Calculator</h2>
+
+<div class="box">
+
+<input type="number" id="num1" placeholder="Enter first number">
+
+<input type="number" id="num2" placeholder="Enter second number">
+
+<button onclick="calculate('add')">Add</button>
+<button onclick="calculate('subtract')">Subtract</button>
+<button onclick="calculate('multiply')">Multiply</button>
+<button onclick="calculate('divide')">Divide</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+
+<script type="module">
+
+/* Module code stored as text */
+const utils = `
+
+export const PI = 3.14159;
+
+export function add(a,b){
+ return a + b;
+}
+
+export function subtract(a,b){
+ return a - b;
+}
+
+export function multiply(a,b){
+ return a * b;
+}
+
+export function divide(a,b){
+ if(b === 0){
+  throw new Error("Cannot divide by zero");
+ }
+ return a / b;
+}
+
+`;
+
+/* Create module dynamically */
+const blob = new Blob([utils], { type: "text/javascript" });
+
+const url = URL.createObjectURL(blob);
+
+/* Import module */
+const module = await import(url);
+
+
+/* Function called when user clicks buttons */
+window.calculate = function(operation){
+
+const num1 = parseFloat(document.getElementById("num1").value);
+const num2 = parseFloat(document.getElementById("num2").value);
+
+let result;
+
+try{
+
+switch(operation){
+
+case "add":
+result = module.add(num1,num2);
+break;
+
+case "subtract":
+result = module.subtract(num1,num2);
+break;
+
+case "multiply":
+result = module.multiply(num1,num2);
+break;
+
+case "divide":
+result = module.divide(num1,num2);
+break;
+
+}
+
+document.getElementById("result").innerText = "Result: " + result;
+
+}catch(error){
+
+document.getElementById("result").innerText = error.message;
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
