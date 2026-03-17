@@ -1,0 +1,18 @@
+<h2>User List</h2>
+
+<h1>{{ title }}</h1>
+
+<!-- ✅ FIXED INPUT -->
+<input [(ngModel)]="newUser" placeholder="Enter name">
+<button (click)="addUser()">Add</button>
+
+<p>Hello {{ user.name }}</p>
+<p>{{ getGreeting() }}</p>
+<p>{{ 5 + 5 }}</p>
+
+<ul>
+  <!-- ✅ renamed variable to avoid confusion -->
+  <li *ngFor="let u of users">
+    {{ u }}
+  </li>
+</ul>
