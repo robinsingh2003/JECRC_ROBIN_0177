@@ -1,0 +1,19 @@
+<div [appTheme]="currentTheme" class="main-container">
+
+  <h2>🎨 Theme Directive</h2>
+
+  <button (click)="toggleTheme()">
+    Switch to {{ currentTheme === 'light' ? 'Dark' : 'Light' }} Mode
+  </button>
+
+  <div class="card">
+    <h3>Welcome User 👋</h3>
+    <p>This UI changes theme dynamically using a custom directive.</p>
+  </div>
+
+  <div class="card">
+    <h3>Current Theme:</h3>
+    <p>{{ currentTheme | uppercase }}</p>
+  </div>
+
+</div>

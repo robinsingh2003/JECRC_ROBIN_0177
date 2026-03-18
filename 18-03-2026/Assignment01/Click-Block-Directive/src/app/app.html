@@ -1,0 +1,30 @@
+<h2>🚫 Click Block Directive</h2>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Allowed Button</h3>
+    <button [appClickBlock]="allowClick1">
+      ✅ Click Me
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Blocked Button</h3>
+    <button [appClickBlock]="allowClick2">
+      ❌ Can't Click
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Dynamic Control</h3>
+    <button (click)="allowClick2 = !allowClick2">
+      Toggle Block
+    </button>
+
+    <button [appClickBlock]="allowClick2">
+      🔄 Try Me
+    </button>
+  </div>
+
+</div>

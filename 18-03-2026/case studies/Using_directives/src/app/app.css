@@ -1,0 +1,85 @@
+/* Page Styling */
+body {
+  font-family: Arial, 'Times New Roman', Times, serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Button */
+button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Card Container */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin: 15px auto;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product Name */
+.card h3 {
+  margin: 0 0 10px;
+  color: #222;
+}
+
+/* Price Styles */
+.high-price {
+  color: red;
+  font-weight: bold;
+}
+
+.low-price {
+  color: green;
+  font-weight: bold;
+}
+
+/* Status Text */
+.card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Status Colors */
+.status-available {
+  color: green;
+  font-weight: bold;
+}
+
+.status-out {
+  color: red;
+  font-weight: bold;
+}
+
+.status-limited {
+  color: orange;
+  font-weight: bold;
+}

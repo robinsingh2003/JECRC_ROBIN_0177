@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj": {}
+    "C:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj": {
+    "C:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj",
         "projectName": "ProductAPI",
-        "projectPath": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj",
+        "projectPath": "C:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\ProductAPI.csproj",
         "packagesPath": "C:\\Users\\Rajendra Singh\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\obj\\",
+        "outputPath": "C:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\06-03-2026\\ProductAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

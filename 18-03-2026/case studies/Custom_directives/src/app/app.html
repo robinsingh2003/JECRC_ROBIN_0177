@@ -1,0 +1,73 @@
+<header>
+  <h1>{{ title() }}</h1>
+  <p class="header-subtitle">Interactive demo showcasing the custom appHighlight directive with dynamic color support and smooth animations.</p>
+</header>
+
+<main class="container">
+  <!-- Color Input Demo -->
+  <section class="color-input-section">
+    <h2>🎨 Dynamic Highlight Color</h2>
+    <p>Change the highlight color and watch the magic!</p>
+    <div class="color-input-group">
+      <label for="highlightColor">Highlight Color:</label>
+      <input id="highlightColor" type="color" value="#6366f1" />
+    </div>
+  </section>
+
+  <!-- Main Demo Section -->
+  <section class="demo-section">
+    <!-- Card 1: Simple Text -->
+    <div class="demo-card" appHighlight="#10b981">
+      <h3>📄 Basic Text Highlight</h3>
+      <p>Hover over me! My background changes to a beautiful green with smooth transition and subtle scale effect.</p>
+      <p>This demonstrates the directive on a simple paragraph. Perfect for call-to-action text or important content.</p>
+    </div>
+
+    <!-- Card 2: List Items -->
+    <div class="demo-card" appHighlight="#f59e0b">
+      <h3>📋 Interactive List</h3>
+      <ul>
+        <li>Angular Custom Directive</li>
+        <li>Mouse Enter/Leave Events</li>
+        <li>Dynamic Color Input</li>
+        <li>Smooth CSS Transitions</li>
+        <li>Hover Animations</li>
+      </ul>
+    </div>
+
+    <!-- Card 3: Buttons -->
+    <div class="demo-card" appHighlight="#ef4444">
+      <h3>🔘 Button Highlights</h3>
+      <p>Buttons that glow on hover – great for navigation or CTAs.</p>
+      <div class="demo-buttons">
+        <button class="btn">Primary Action</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <a href="#" class="btn">Link Style</a>
+      </div>
+    </div>
+
+    <!-- Card 4: Your Name (Original Content Enhanced) -->
+    <div class="demo-card" appHighlight="#3b82f6">
+      <h3>👤 Personal Touch</h3>
+      <p>My Name is Robin Singh</p>
+      <p>Custom highlight directive brings your content to life!</p>
+    </div>
+  </section>
+
+  <!-- Additional Demo: Custom Color from Input (requires JS binding, simplified static demos above) -->
+  <section class="color-input-section">
+    <h2>✨ Features Showcase</h2>
+    <div class="demo-card" style="max-width: 500px; margin: 0 auto;" appHighlight="#8b5cf6">
+      <h3>Everything Works Together!</h3>
+      <p>• Responsive design<br>
+         • Custom colors per element<br>
+         • Smooth animations & transforms<br>
+         • Modern card-based layout<br>
+         • Hover effects everywhere</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Custom Directives Demo. Built with Angular Standalone Components.</p>
+</footer>

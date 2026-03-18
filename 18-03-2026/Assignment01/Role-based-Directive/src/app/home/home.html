@@ -1,0 +1,47 @@
+<div class="role-container">
+  <h2>🚀 Enhanced Role-Based Directive Demo</h2>
+  
+  <div class="current-role">
+    Current Role: <strong>{{ role }}</strong>
+  </div>
+  
+  <div class="role-switcher">
+    <button class="role-btn admin-btn" (click)="setRole('admin')">👑 Admin</button>
+    <button class="role-btn user-btn" (click)="setRole('user')">👤 User</button>
+    <button class="role-btn guest-btn" (click)="setRole('guest')">👻 Guest</button>
+  </div>
+  
+  <!-- Admin Only Panel -->
+  <div *appRole="'admin'" class="role-panel admin-panel">
+    <h3>🔒 Admin Control Panel</h3>
+    <ul>
+      <li>👥 Manage Users</li>
+      <li>⚙️ System Settings</li>
+      <li>📊 View Analytics</li>
+      <li>🗑️ Delete Content</li>
+    </ul>
+  </div>
+  
+  <!-- User or Admin Panel -->
+  <div *appRole="'user,admin'" class="role-panel user-panel">
+    <h3>📱 User Dashboard</h3>
+    <ul>
+      <li>✏️ Edit Profile</li>
+      <li>📝 Create Posts</li>
+      <li>❤️ Like Content</li>
+      <li>💬 Comment</li>
+    </ul>
+  </div>
+  
+  <!-- Guest Message (everyone sees) -->
+  <div *appRole="'guest,user,admin'" class="role-panel guest-panel">
+    <h3>👋 Welcome!</h3>
+    <p>Explore our platform. <a href="#">Sign up</a> or <a href="#">Login</a> for full access.</p>
+  </div>
+  
+  <!-- Guest Only -->
+  <div *appRole="'guest'" class="role-panel guest-panel">
+    <h3>🔓 Limited Access</h3>
+    <p>Upgrade to User for more features!</p>
+  </div>
+</div>

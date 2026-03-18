@@ -2466,24 +2466,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {}
+    "C:\\Users\\Rajendra Singh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CRT\\Capgemini Training\\09-03-2026\\TodoApp\\TodoApp.csproj",
+      "projectUniqueName": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\09-03-2026\\TodoApp\\TodoApp.csproj",
       "projectName": "TodoApp",
-      "projectPath": "D:\\CRT\\Capgemini Training\\09-03-2026\\TodoApp\\TodoApp.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\CRT\\Capgemini Training\\09-03-2026\\TodoApp\\obj\\",
+      "projectPath": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\09-03-2026\\TodoApp\\TodoApp.csproj",
+      "packagesPath": "C:\\Users\\Rajendra Singh\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\09-03-2026\\TodoApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Rajendra Singh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2502,7 +2509,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -2550,7 +2557,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
