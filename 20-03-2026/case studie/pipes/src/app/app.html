@@ -1,0 +1,44 @@
+<h2>📊 Angular Pipes Demo</h2>
+
+<!-- Date Pipe -->
+<p class="date">
+  📅 {{ today | date:'fullDate' }}
+</p>
+
+<h2>🛒 Order List</h2>
+
+<!-- Async Pipe -->
+<div class="container">
+  <div class="card" *ngFor="let order of data$ | async">
+
+    <p><span>Order ID:</span> {{ order.id }}</p>
+    <p><span>Product:</span> {{ order.productName }}</p>
+    <p><span>Price:</span> {{ order.price | customcurrency }}</p>
+
+    <p class="status"
+       [ngStyle]="{ color: order.status === 'Delivered' ? 'green' : 'orange' }">
+      <span>Status:</span> {{ order.status }}
+    </p>
+
+  </div>
+</div>
+
+<!-- KeyValue Pipe -->
+<h2>🔑 KeyValue Pipe Demo</h2>
+
+<div class="card" *ngFor="let item of sampleProduct | keyvalue">
+  <p><b>{{ item.key }}:</b> {{ item.value }}</p>
+</div>
+
+<!-- Custom Currency Pipe -->
+<h2>💰 Custom Currency Pipe Demo</h2>
+
+<div class="card">
+  <p><span>Sample Laptop Price:</span> {{ 50000 | customcurrency }}</p>
+</div>
+
+<div class="card">
+  <p><span>First Order Price:</span>
+    {{ ((data$ | async)?.[0]?.price ?? 0) | customcurrency }}
+  </p>
+</div>

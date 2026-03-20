@@ -1,0 +1,29 @@
+.checkout {
+  margin: 20px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.checkout h2 {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+.section {
+  margin-top: 10px;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+}

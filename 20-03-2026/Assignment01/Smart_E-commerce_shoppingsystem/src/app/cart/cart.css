@@ -1,0 +1,19 @@
+.box {
+  width: 35%;
+}
+
+.item {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

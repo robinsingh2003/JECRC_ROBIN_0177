@@ -1,0 +1,19 @@
+<div class="box glass">
+  <h2>🛒 Cart</h2>
+
+  <div *ngFor="let item of cart" class="item">
+    <strong>{{item.name}}</strong>
+
+    <div class="actions">
+      <div>
+        <button (click)="decrease(item)">-</button>
+        {{item.quantity}}
+        <button (click)="increase(item)">+</button>
+      </div>
+
+      <p>₹{{getTotal(item)}}</p>
+    </div>
+
+    <button (click)="remove(item)">Remove</button>
+  </div>
+</div>

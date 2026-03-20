@@ -1,0 +1,37 @@
+<div class="parent">
+  <h2>👨‍👩‍👧 Lifecycle Demo Dashboard</h2>
+
+  <div class="btn-group">
+    <button (click)="updateOrder()">🔄 Update Order</button>
+    <button (click)="toggleChild()">
+      {{ showChild ? '❌ Destroy Child' : '✅ Create Child' }}
+    </button>
+    <button class="clear" (click)="clearLogs()">🧹 Clear Logs</button>
+  </div>
+
+  <!-- STATUS -->
+  <p class="status-msg" *ngIf="showChild">🟢 Child is Active</p>
+  <p class="status-msg destroy" *ngIf="!showChild">🔴 Child is Destroyed</p>
+
+  <!-- CHILD -->
+  <div *ngIf="showChild">
+    <app-order-child
+      [order]="order"
+      (logEvent)="addLog($event, 'hook')">
+    </app-order-child>
+  </div>
+
+  <!-- LOG PANEL -->
+  <div class="log-box">
+    <h3>📜 Lifecycle Logs</h3>
+
+    <div *ngFor="let log of logs"
+         class="log"
+         [ngClass]="log.type">
+
+      <span class="time">[{{ log.time }}]</span>
+      {{ log.message }}
+
+    </div>
+  </div>
+</div>

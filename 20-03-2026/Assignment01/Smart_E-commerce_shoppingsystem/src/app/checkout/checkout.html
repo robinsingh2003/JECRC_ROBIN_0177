@@ -1,0 +1,40 @@
+<div class="checkout glass">
+  <h2>💳 Checkout</h2>
+
+  <div class="row">
+    <input placeholder="Full Name" [(ngModel)]="user.name">
+    <input placeholder="Email" [(ngModel)]="user.email">
+  </div>
+
+  <input placeholder="Phone" [(ngModel)]="user.phone">
+
+  <div class="section">
+    <label>Gender:</label>
+    <label><input type="radio" [(ngModel)]="user.gender" name="g" value="Male"> Male</label>
+    <label><input type="radio" [(ngModel)]="user.gender" name="g" value="Female"> Female</label>
+  </div>
+
+  <div class="section">
+    <label>Delivery:</label>
+    <label><input type="radio" [(ngModel)]="user.delivery" name="d" value="Standard"> Standard</label>
+    <label><input type="radio" [(ngModel)]="user.delivery" name="d" value="Express"> Express</label>
+  </div>
+
+  <select [(ngModel)]="user.city">
+    <option value="">Select City</option>
+    <option>Delhi</option>
+    <option>Mumbai</option>
+  </select>
+
+  <input type="date" [(ngModel)]="user.date">
+
+  <div class="section">
+    <label>Payment:</label>
+    <label><input type="radio" [(ngModel)]="user.payment" name="p" value="COD"> COD</label>
+    <label><input type="radio" [(ngModel)]="user.payment" name="p" value="UPI"> UPI</label>
+  </div>
+
+  <h3>Total: ₹{{total}}</h3>
+
+  <button (click)="submit()">Place Order 🚀</button>
+</div>

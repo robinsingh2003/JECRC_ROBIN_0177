@@ -1,0 +1,12 @@
+.card {
+  width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  text-align: center;
+}

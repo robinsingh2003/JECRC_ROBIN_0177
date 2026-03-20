@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 style="text-align:center;">🛒 Smart E-Commerce</h1>
+
+  <div class="layout">
+    <app-product 
+      [products]="products"
+      (add)="addToCart($event)">
+    </app-product>
+
+    <app-cart 
+      [cart]="cart"
+      (cartChange)="updateCart($event)">
+    </app-cart>
+  </div>
+
+  <app-dashboard [cart]="cart"></app-dashboard>
+
+  <app-checkout 
+    [cart]="cart"
+    [total]="getTotal()">
+  </app-checkout>
+</div>

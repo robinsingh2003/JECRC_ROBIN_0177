@@ -1,0 +1,86 @@
+<header class="header">
+  <h1>🚀 Angular Forms Demo</h1>
+  <p>Template-Driven & Reactive Forms Showcase</p>
+  <button class="theme-toggle" (click)="toggleDark()">
+    {{ isDark ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+  </button>
+</header>
+
+<main class="main">
+  <div class="form-section">
+    <app-employee-form></app-employee-form>
+  </div>
+  <div class="form-section">
+    <div class="container">
+      <div class="card-header">
+        <h2>📝 Employee Feedback Form</h2>
+      </div>
+
+      <form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)">
+
+        <div class="form-group">
+          <label>👤 Name*</label>
+          <input type="text" name="name" [(ngModel)]="feedback.name" required />
+          <div *ngIf="feedbackForm.submitted && !feedback.name" class="error">
+            Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>📧 Email*</label>
+          <input type="email" name="email" [(ngModel)]="feedback.email" required email />
+          <div *ngIf="feedbackForm.submitted && !feedback.email" class="error">
+            Email is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>🏢 Department*</label>
+          <select name="department" [(ngModel)]="feedback.department" required>
+            <option value="">Select Department</option>
+            <option *ngFor="let dept of departments" [value]="dept">
+              {{ dept }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>⭐ Rating*</label>
+          <div class="radio-group">
+            <label *ngFor="let rate of [1,2,3,4,5]" class="radio-label">
+              <input
+                type="radio"
+                name="rating"
+                [value]="rate"
+                [(ngModel)]="feedback.rating"
+                required
+              />
+              {{ rate }} ⭐
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>💬 Comments</label>
+          <textarea name="comments" [(ngModel)]="feedback.comments" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>🛠️ Skills</label>
+          <div class="skills-group">
+            <label *ngFor="let skill of allSkills" class="checkbox-label">
+              <input
+                type="checkbox"
+                [value]="skill"
+                (change)="updateSkills(skill, $event.target.checked)"
+              />
+              {{ skill }}
+            </label>
+          </div>
+        </div>
+
+        <button type="submit">🚀 Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+</main>
