@@ -1,0 +1,40 @@
+<div class="products-header">
+  <h1>🛍️ Products</h1>
+  <div class="nav-links">
+    <a routerLink="/" class="nav-link active">Products</a>
+    <a routerLink="/cart" class="nav-link">Cart ({{ cartItemCount }})</a>
+    <a routerLink="/checkout" class="nav-link">Checkout</a>
+  </div>
+</div>
+<div class="filters">
+
+  <!-- 🔍 Search -->
+  <input 
+    type="text" 
+    placeholder="Search products..."
+    [(ngModel)]="searchText"
+    (input)="filterProducts()"
+  />
+
+  <!-- 📂 Category -->
+  <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
+    <option *ngFor="let cat of categories" [value]="cat">
+      {{ cat }}
+    </option>
+  </select>
+
+</div>
+<div class="products-grid">
+  <div *ngFor="let product of products" class="product-card">
+    <div class="product-image">📱</div>
+    <div class="product-details">
+      <h3>{{ product.name }}</h3>
+      <p class="price">₹{{ product.price | number:'1.2-2' }}</p>
+      <p class="description">High quality {{ product.name.toLowerCase() }} with latest features.</p>
+      <button class="add-to-cart-btn" (click)="addToCart(product)">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
