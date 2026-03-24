@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="product-detail-container" *ngIf="product; else noProduct">
+    <div class="product-hero-image">
+      💻
+    </div>
+    <h1 class="product-detail-title">{{product.name}}</h1>
+    <div class="product-price-large">${{product.price}}</div>
+    <div class="product-description">
+      This premium {{product.name.toLowerCase()}} offers exceptional quality and performance. 
+      Perfect for professionals and enthusiasts alike. Limited stock available.
+    </div>
+    <a routerLink="/product" class="back-button">← Back to Products</a>
+  </div>
+  
+  <ng-template #noProduct>
+    <div class="product-detail-container">
+      <h2 style="text-align: center; color: #607D8B; margin: 2rem 0;">
+        Product not found 😔
+      </h2>
+      <a routerLink="/product" class="back-button">← Browse Products</a>
+    </div>
+  </ng-template>
+</div>
