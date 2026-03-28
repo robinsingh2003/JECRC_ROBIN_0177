@@ -1,0 +1,49 @@
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.status {
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.completed {
+  background: #d4edda;
+  color: green;
+}
+
+.pending {
+  background: #ffeeba;
+  color: #856404;
+}
+
+.task-actions {
+  margin-top: 8px;
+}
+
+button {
+  margin-right: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete {
+  background: #ff4d4d;
+  color: white;
+}

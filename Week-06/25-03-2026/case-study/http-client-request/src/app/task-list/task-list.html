@@ -1,0 +1,20 @@
+<h2>Task List</h2>
+
+<div class="task-container">
+  <div class="task-card" *ngFor="let task of tasks">
+
+    <div class="task-header">
+      <span>{{ task.title }}</span>
+
+      <span [ngClass]="task.completed ? 'completed' : 'pending'">
+        {{ task.completed ? 'Completed' : 'In Progress' }}
+      </span>
+    </div>
+
+    <div>
+      <button (click)="toggleTask(task)">Toggle</button>
+      <button (click)="deleteTask(task.id!)">Delete</button>
+    </div>
+
+  </div>
+</div>
