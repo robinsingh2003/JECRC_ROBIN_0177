@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe, #93c5fd);
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.counter-card {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.count-display {
+  font-size: 60px;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 25px;
+}
+
+.step-box {
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #333;
+}
+
+.step-input {
+  margin-left: 10px;
+  padding: 8px 12px;
+  width: 80px;
+  border: 2px solid #93c5fd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.step-input:focus {
+  border-color: #2563eb;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.increment {
+  background: #16a34a;
+}
+
+.decrement {
+  background: #dc2626;
+}
+
+.reset {
+  background: #2563eb;
+}
+
+.last-action {
+  font-size: 17px;
+  color: #444;
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+}
