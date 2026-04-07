@@ -1,0 +1,28 @@
+/* src/assets/styles/global.css */
+:root {
+  /* Light Theme Variables */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --border: #e2e8f0;
+  --danger: #ef4444;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Variables */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background 0.3s ease;
+}
