@@ -1,0 +1,35 @@
+<div class="weather-container">
+  <input 
+    type="text" 
+    [(ngModel)]="searchCity" 
+    (input)="onInputChange()" 
+    data-test-id="app-input" 
+    placeholder="Search City"
+  />
+
+  <div *ngIf="cityDetails as details" class="weather-details" data-test-id="weather-details">
+    <div class="weather-summary">
+      <div class="city-name">{{ details.name }}</div>
+      <div class="city-label">Current conditions</div>
+    </div>
+
+    <div class="output-row" data-test-id="output-temperature">
+      <span class="label">Temperature</span>
+      <span class="value">{{ details.temperature }}</span>
+    </div>
+
+    <div class="output-row" data-test-id="output-wind">
+      <span class="label">Wind</span>
+      <span class="value">{{ details.wind }}</span>
+    </div>
+
+    <div class="output-row" data-test-id="output-humidity">
+      <span class="label">Humidity</span>
+      <span class="value">{{ details.humidity }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="showNoResults" class="no-results" data-test-id="no-results">
+    No Results Found
+  </div>
+</div>

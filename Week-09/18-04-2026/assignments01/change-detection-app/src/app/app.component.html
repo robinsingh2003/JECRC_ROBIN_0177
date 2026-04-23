@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>🔥 Change Detection Puzzle</h1>
+
+  <div class="card parent">
+    <h2>Parent Component (Default)</h2>
+
+    <p><strong>Name:</strong> {{ userStats.name }}</p>
+    <p><strong>Score:</strong> {{ userStats.score }}</p>
+
+    <button (click)="updateFromParent()">
+      Update from Parent (+10)
+    </button>
+  </div>
+
+  <app-dashboard [userStats]="userStats"></app-dashboard>
+</div>

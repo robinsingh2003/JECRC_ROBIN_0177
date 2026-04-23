@@ -1,0 +1,39 @@
+<div class="card dashboard">
+  <h2>📊 Dashboard (OnPush)</h2>
+
+  <p><strong>Name:</strong> {{ userStats.name }}</p>
+
+  <p>
+    <strong>Score:</strong>
+    <span [ngClass]="{
+      'low': userStats.score < 100,
+      'high': userStats.score >= 100
+    }">
+      {{ userStats.score }}
+    </span>
+  </p>
+
+  <!-- Progress Bar -->
+  <div class="progress">
+    <div
+      class="progress-fill"
+      [style.width.%]="userStats.score"
+    ></div>
+  </div>
+
+  <div class="buttons">
+    <button class="bug" (click)="updateLocally()">
+      ❌ Mutate (Bug)
+    </button>
+
+    <button class="fix" (click)="fixUpdate()">
+      ✅ Fix (New Ref)
+    </button>
+  </div>
+
+  <p class="status">
+    Last Action: {{ lastAction }}
+  </p>
+
+  <app-stats [data]="userStats"></app-stats>
+</div>

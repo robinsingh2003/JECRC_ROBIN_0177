@@ -1,0 +1,20 @@
+<div class="app-root">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="eyebrow">Weather Explorer</span>
+      <h1>Search city weather instantly</h1>
+      <p>Type a city name and discover temperature, wind, and humidity details for major cities. The search is case-insensitive and updates results as you type.</p>
+      <div class="hint-box">
+        <span>Try:</span>
+        <span>London</span>
+        <span>New York</span>
+        <span>Tokyo</span>
+        <span>Paris</span>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <app-weather [weatherData]="cityData"></app-weather>
+    </div>
+  </div>
+</div>

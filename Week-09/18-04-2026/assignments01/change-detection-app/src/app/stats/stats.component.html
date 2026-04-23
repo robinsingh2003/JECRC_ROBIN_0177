@@ -1,0 +1,19 @@
+<div class="card stats">
+  <h3>📈 Stats Component (Default)</h3>
+
+  <p>
+    Live Score:
+    <strong>{{ data.score }}</strong>
+  </p>
+
+  <div class="progress">
+    <div
+      class="progress-fill"
+      [style.width.%]="data.score"
+    ></div>
+  </div>
+
+  <p class="note">
+    ✅ Updates even when Dashboard doesn't!
+  </p>
+</div>
