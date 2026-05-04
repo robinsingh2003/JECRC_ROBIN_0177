@@ -1,0 +1,11 @@
+@model Mvc.Models.Employee
+
+<h2>Edit Employee</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <input type="text" asp-for="Name" placeholder="Enter Name" required />
+
+    <button type="submit">Update</button>
+</form>
