@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "kfQXm0Gdepc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Rajendra Singh\\OneDrive\\Desktop\\dotnet start\\capegemini training\\Week-12\\05-05-2026\\WelcomePage\\WelcomePage.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rajendra Singh\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "C:\\Users\\Rajendra Singh\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\Rajendra Singh\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}
