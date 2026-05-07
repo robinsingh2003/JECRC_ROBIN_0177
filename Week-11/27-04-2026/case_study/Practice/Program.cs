@@ -138,6 +138,7 @@ class Program
         }
         return merged;
     }
+    
     static void Main(string[] args)
     {
         // SumofDigits("12345");
