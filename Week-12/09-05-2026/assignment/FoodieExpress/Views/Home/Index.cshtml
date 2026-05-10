@@ -1,0 +1,68 @@
+@model MenuViewModel
+@{
+    ViewData["Title"] = "Order food online";
+}
+
+<section class="hero-band">
+    <div class="container hero-grid">
+        <div>
+            <p class="eyebrow">Fresh meals delivered fast</p>
+            <h1>Order biryani, pizza, dosa and desserts in minutes.</h1>
+            <p class="hero-copy">Browse restaurant favourites, add them to cart, checkout securely, and track every order from the same app.</p>
+            <form class="search-shell" asp-action="Index" method="get">
+                <input name="search" value="@Model.Search" placeholder="Search for biryani, dosa, pizza..." />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="hero-plate">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Assorted food" />
+        </div>
+    </div>
+</section>
+
+<section class="container py-4">
+    <div class="category-strip">
+        <a class="category-pill @(Model.CategoryId is null ? "active" : "")" asp-action="Index" asp-route-search="@Model.Search">All</a>
+        @foreach (var category in Model.Categories)
+        {
+            <a class="category-pill @(Model.CategoryId == category.Id ? "active" : "")" asp-action="Index" asp-route-categoryId="@category.Id" asp-route-search="@Model.Search">@category.Name</a>
+        }
+    </div>
+
+    <div class="section-title">
+        <div>
+            <p class="eyebrow">Top picks near you</p>
+            <h2>Recommended dishes</h2>
+        </div>
+        <span>@Model.FoodItems.Count items available</span>
+    </div>
+
+    <div class="food-grid">
+        @foreach (var food in Model.FoodItems)
+        {
+            <article class="food-card">
+                <a asp-action="Details" asp-route-id="@food.Id" class="food-image-link">
+                    <img src="@food.ImageUrl" alt="@food.Name" />
+                </a>
+                <div class="food-card-body">
+                    <div class="d-flex justify-content-between gap-3">
+                        <div>
+                            <h3>@food.Name</h3>
+                            <p class="food-meta">@food.Category?.Name</p>
+                        </div>
+                        <span class="rating">@food.Rating.ToString("0.0")</span>
+                    </div>
+                    <p>@food.Description</p>
+                    <div class="food-card-footer">
+                        <strong>₹@food.Price.ToString("0")</strong>
+                        <span>@food.PreparationMinutes min</span>
+                        <form asp-controller="Cart" asp-action="Add" method="post">
+                            <input type="hidden" name="foodItemId" value="@food.Id" />
+                            <button class="add-btn" type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</section>

@@ -1,0 +1,9 @@
+bin/
+obj/
+.git/
+.vs/
+server.log
+server.err.log
+app.db
+wwwroot/uploads/*
+!wwwroot/uploads/.gitkeep

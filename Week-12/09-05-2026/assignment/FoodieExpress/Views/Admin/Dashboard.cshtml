@@ -1,0 +1,44 @@
+@model List<Order>
+@{
+    ViewData["Title"] = "Admin dashboard";
+}
+
+<section class="container py-5">
+    <div class="section-title">
+        <div>
+            <p class="eyebrow">Admin</p>
+            <h1>Restaurant operations</h1>
+        </div>
+        <div class="admin-actions">
+            <a class="secondary-btn" asp-action="FoodItems">Food items</a>
+            <a class="secondary-btn" asp-action="Categories">Categories</a>
+            <a class="secondary-btn" asp-action="Orders">Orders</a>
+        </div>
+    </div>
+
+    <div class="metric-grid">
+        <div><span>Food items</span><strong>@ViewBag.FoodCount</strong></div>
+        <div><span>Total orders</span><strong>@ViewBag.OrderCount</strong></div>
+        <div><span>Active orders</span><strong>@ViewBag.PendingCount</strong></div>
+        <div><span>Revenue</span><strong>₹@(((decimal)ViewBag.Revenue).ToString("0"))</strong></div>
+    </div>
+
+    <div class="table-shell mt-4">
+        <table class="table align-middle">
+            <thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Status</th><th>Total</th><th></th></tr></thead>
+            <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>#@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.Items.Count</td>
+                    <td><span class="status-pill">@order.Status</span></td>
+                    <td>₹@order.Total.ToString("0")</td>
+                    <td><a asp-controller="Orders" asp-action="Invoice" asp-route-id="@order.Id">View</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>

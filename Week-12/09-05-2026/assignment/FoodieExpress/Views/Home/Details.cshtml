@@ -1,0 +1,23 @@
+@model FoodItem
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<section class="container detail-layout py-5">
+    <img class="detail-image" src="@Model.ImageUrl" alt="@Model.Name" />
+    <div>
+        <p class="eyebrow">@Model.Category?.Name</p>
+        <h1>@Model.Name</h1>
+        <p class="lead">@Model.Description</p>
+        <div class="detail-stats">
+            <span>₹@Model.Price.ToString("0")</span>
+            <span>@Model.Rating.ToString("0.0") rating</span>
+            <span>@Model.PreparationMinutes min</span>
+        </div>
+        <form asp-controller="Cart" asp-action="Add" method="post" class="quantity-form">
+            <input type="hidden" name="foodItemId" value="@Model.Id" />
+            <input type="number" name="quantity" value="1" min="1" max="20" />
+            <button class="primary-btn" type="submit">Add to cart</button>
+        </form>
+    </div>
+</section>

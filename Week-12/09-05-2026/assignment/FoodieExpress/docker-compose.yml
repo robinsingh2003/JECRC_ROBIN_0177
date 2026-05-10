@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    image: foodieexpress-web:latest
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      DatabaseProvider: "Sqlite"
+      ConnectionStrings__DefaultConnection: "Data Source=/app/data/foodieexpress.db"
+    ports:
+      - "5055:8080"
+    volumes:
+      - foodie_data:/app/data
+
+volumes:
+  foodie_data:

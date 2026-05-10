@@ -1,0 +1,17 @@
+@model FoodItem
+@{
+    ViewData["Title"] = "Add food item";
+}
+
+<section class="container py-5">
+    <form asp-action="CreateFoodItem" method="post" enctype="multipart/form-data" class="form-panel wide-form">
+        <p class="eyebrow">Admin</p>
+        <h1>Add food item</h1>
+        <partial name="_FoodItemForm" model="Model" />
+        <button class="primary-btn mt-3" type="submit">Save item</button>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

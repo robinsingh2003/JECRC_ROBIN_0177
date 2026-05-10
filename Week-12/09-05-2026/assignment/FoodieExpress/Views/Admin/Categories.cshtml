@@ -1,0 +1,40 @@
+@model List<Category>
+@{
+    ViewData["Title"] = "Manage categories";
+}
+
+<section class="container py-5 category-admin-grid">
+    <form asp-action="AddCategory" method="post" class="form-panel">
+        <p class="eyebrow">Admin</p>
+        <h1>Add category</h1>
+        <label>Name</label>
+        <input name="Name" class="form-control" required maxlength="80" />
+        <label>Description</label>
+        <textarea name="Description" class="form-control" rows="4" maxlength="160"></textarea>
+        <button class="primary-btn mt-3" type="submit">Save category</button>
+    </form>
+
+    <div class="table-shell">
+        <table class="table align-middle">
+            <thead><tr><th>Name</th><th>Items</th><th></th></tr></thead>
+            <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>
+                        <strong>@category.Name</strong>
+                        <p class="mb-0 text-muted">@category.Description</p>
+                    </td>
+                    <td>@category.FoodItems.Count</td>
+                    <td class="text-end">
+                        <form asp-action="DeleteCategory" method="post">
+                            <input type="hidden" name="id" value="@category.Id" />
+                            <button class="text-btn" type="submit" disabled="@(category.FoodItems.Any())">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>

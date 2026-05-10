@@ -1,0 +1,57 @@
+@model List<CartItem>
+@{
+    ViewData["Title"] = "Cart";
+    var subtotal = Model.Sum(item => item.LineTotal);
+    var deliveryFee = subtotal >= 499 || subtotal == 0 ? 0 : 39;
+    var tax = Math.Round(subtotal * 0.05m, 2);
+}
+
+<section class="container py-5">
+    <div class="section-title">
+        <div>
+            <p class="eyebrow">Cart</p>
+            <h1>Your order</h1>
+        </div>
+        <a class="link-quiet" asp-controller="Home" asp-action="Index">Add more items</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <h2>Your cart is empty</h2>
+            <p>Start with a top-rated biryani, pizza, dosa, or dessert.</p>
+            <a class="primary-btn" asp-controller="Home" asp-action="Index">Browse menu</a>
+        </div>
+    }
+    else
+    {
+        <div class="cart-layout">
+            <div class="cart-list">
+                @foreach (var item in Model)
+                {
+                    <div class="cart-row">
+                        <img src="@item.FoodItem?.ImageUrl" alt="@item.FoodItem?.Name" />
+                        <div>
+                            <h3>@item.FoodItem?.Name</h3>
+                            <p>@item.FoodItem?.Category?.Name</p>
+                            <strong>₹@item.LineTotal.ToString("0")</strong>
+                        </div>
+                        <span class="qty-pill">Qty @item.Quantity</span>
+                        <form asp-action="Remove" method="post">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button class="text-btn" type="submit">Remove</button>
+                        </form>
+                    </div>
+                }
+            </div>
+            <aside class="bill-panel">
+                <h2>Bill details</h2>
+                <div><span>Item total</span><strong>₹@subtotal.ToString("0")</strong></div>
+                <div><span>Delivery fee</span><strong>₹@deliveryFee.ToString("0")</strong></div>
+                <div><span>GST</span><strong>₹@tax.ToString("0.00")</strong></div>
+                <div class="bill-total"><span>To pay</span><strong>₹@((subtotal + deliveryFee + tax).ToString("0.00"))</strong></div>
+                <a class="primary-btn w-100 text-center" asp-action="Checkout">Checkout</a>
+            </aside>
+        </div>
+    }
+</section>

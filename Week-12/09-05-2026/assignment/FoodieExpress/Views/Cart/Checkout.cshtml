@@ -1,0 +1,43 @@
+@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+    var cart = (List<CartItem>)ViewBag.Cart;
+    var subtotal = cart.Sum(item => item.LineTotal);
+    var deliveryFee = subtotal >= 499 ? 0 : 39;
+    var tax = Math.Round(subtotal * 0.05m, 2);
+}
+
+<section class="container py-5 checkout-grid">
+    <form asp-action="Checkout" method="post" class="form-panel">
+        <p class="eyebrow">Checkout</p>
+        <h1>Delivery details</h1>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <label asp-for="CustomerName"></label>
+        <input asp-for="CustomerName" class="form-control" />
+        <span asp-validation-for="CustomerName" class="text-danger"></span>
+
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+        <label asp-for="DeliveryAddress"></label>
+        <textarea asp-for="DeliveryAddress" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+
+        <button class="primary-btn mt-3" type="submit">Place order</button>
+    </form>
+    <aside class="bill-panel">
+        <h2>Order summary</h2>
+        @foreach (var item in cart)
+        {
+            <div><span>@item.Quantity x @item.FoodItem?.Name</span><strong>₹@item.LineTotal.ToString("0")</strong></div>
+        }
+        <div><span>Delivery fee</span><strong>₹@deliveryFee.ToString("0")</strong></div>
+        <div><span>GST</span><strong>₹@tax.ToString("0.00")</strong></div>
+        <div class="bill-total"><span>Total</span><strong>₹@((subtotal + deliveryFee + tax).ToString("0.00"))</strong></div>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

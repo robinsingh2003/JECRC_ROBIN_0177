@@ -1,0 +1,38 @@
+@model Order
+@{
+    ViewData["Title"] = $"Invoice #{Model.Id}";
+}
+
+<section class="container py-5">
+    <div class="invoice">
+        <div class="section-title">
+            <div>
+                <p class="eyebrow">Invoice</p>
+                <h1>Order #@Model.Id</h1>
+                <p>@Model.CustomerName • @Model.PhoneNumber</p>
+                <p>@Model.DeliveryAddress</p>
+            </div>
+            <span class="status-pill">@Model.Status</span>
+        </div>
+        <table class="table">
+            <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
+            <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.FoodName</td>
+                    <td>@item.Quantity</td>
+                    <td>₹@item.UnitPrice.ToString("0")</td>
+                    <td>₹@item.LineTotal.ToString("0")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <div class="invoice-totals">
+            <div><span>Subtotal</span><strong>₹@Model.Subtotal.ToString("0.00")</strong></div>
+            <div><span>Delivery</span><strong>₹@Model.DeliveryFee.ToString("0.00")</strong></div>
+            <div><span>GST</span><strong>₹@Model.Tax.ToString("0.00")</strong></div>
+            <div class="bill-total"><span>Total paid</span><strong>₹@Model.Total.ToString("0.00")</strong></div>
+        </div>
+    </div>
+</section>

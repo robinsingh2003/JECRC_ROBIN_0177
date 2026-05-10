@@ -1,0 +1,42 @@
+@model List<FoodItem>
+@{
+    ViewData["Title"] = "Manage food";
+}
+
+<section class="container py-5">
+    <div class="section-title">
+        <div>
+            <p class="eyebrow">Admin</p>
+            <h1>Food management</h1>
+        </div>
+        <a class="primary-btn" asp-action="CreateFoodItem">Add food item</a>
+    </div>
+    <div class="table-shell">
+        <table class="table align-middle">
+            <thead><tr><th>Food</th><th>Category</th><th>Price</th><th>Available</th><th></th></tr></thead>
+            <tbody>
+            @foreach (var food in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="admin-food-cell">
+                            <img src="@food.ImageUrl" alt="@food.Name" />
+                            <span>@food.Name</span>
+                        </div>
+                    </td>
+                    <td>@food.Category?.Name</td>
+                    <td>₹@food.Price.ToString("0")</td>
+                    <td>@(food.IsAvailable ? "Yes" : "No")</td>
+                    <td class="text-end">
+                        <a asp-action="EditFoodItem" asp-route-id="@food.Id">Edit</a>
+                        <form asp-action="DeleteFoodItem" method="post" class="d-inline ms-3">
+                            <input type="hidden" name="id" value="@food.Id" />
+                            <button class="text-btn" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>
